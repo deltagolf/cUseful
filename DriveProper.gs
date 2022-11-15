@@ -43,7 +43,7 @@ var DriveProper = function (service) {
   self.get = function (fileId , all) {
     
     return service_.Files.get(fileId)
-    .properties.filter (function (d) {
+    .properties.filter (function (d) {                //Protect the function when the file has any type of properties
       return all || d.visibility === "PRIVATE";
     })
     .map (function (d) {
